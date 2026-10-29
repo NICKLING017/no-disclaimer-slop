@@ -1,0 +1,26 @@
+# Visitor-facing ban list (case-insensitive).
+# Allowlist paths handled in grep-check.sh: terms|privacy|legal|disclaimer|sources|methodology|research-method
+results vary
+your results may vary
+not guaranteed
+no guarantee
+for reference only
+ai can be wrong
+ai may be wrong
+we cannot confirm
+not verified by us
+availability is checked again
+i understand results may vary
+subject to change
+appears to
+seems to
+仅供参考
+不保证
+恕不保证
+结果因人而异
+AI可能出错
+AI 可能出错
+未经验证
+未经核实
+不一定
+或许
