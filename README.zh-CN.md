@@ -56,34 +56,70 @@ English: [`README.md`](./README.md)
 
 ## 安装（60 秒）
 
-### 方案 A — Codex / 任何读 AGENTS.md 的 agent
+> [!IMPORTANT]
+> **把下面这段发给你的 agent，即可全局安装本技能：**
+
+```text
+全局安装 Have a Spine 技能。不要装进某个项目目录。
+
+下载 https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md
+保存为 ~/.cursor/skills/have-a-spine/SKILL.md（目录不存在就创建）。
+
+可选：再下载 https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md
+到 ~/.codex/AGENTS.md。该文件已存在就合并进去，不要清掉里面的其他规则。
+
+装完后确认你写入的路径。
+```
+
+上面这段就是安装方法。发给 Cursor、Claude Code、Codex 或任何写代码的 agent 即可。下面的命令是同一件事，自己动手做。装一份到用户目录，这台机器上的每个项目都生效。
+
+### Cursor / Claude Code / 同类 — 全局技能
+
+| Agent | 全局技能文件 |
+|---|---|
+| Cursor | `~/.cursor/skills/have-a-spine/SKILL.md` |
+| Claude Code | `~/.claude/skills/have-a-spine/SKILL.md` |
 
 ```bash
-# 单个项目
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
-  -o AGENTS.md
+# Cursor — 这个用户的全部项目（默认）
+mkdir -p ~/.cursor/skills/have-a-spine
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
+  -o ~/.cursor/skills/have-a-spine/SKILL.md
 
-# 或者合并：把 "Have a Spine" 那一段贴进你现有的 AGENTS.md
+# Claude Code — 同一份文件，用户级全局技能
+mkdir -p ~/.claude/skills/have-a-spine
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
+  -o ~/.claude/skills/have-a-spine/SKILL.md
+```
 
-# 全部项目（Codex 家目录）
+Codex 的用户技能放同一份文件：`~/.agents/skills/have-a-spine/SKILL.md`（`~/.codex/skills/` 仍会加载）。用 Codex 时，优先装下面的全局 `AGENTS.md`。
+
+新开一个对话。改落地页文案、FAQ、wiki、结账字符串时，Cursor 用 `@have-a-spine`，Claude Code 用 `/have-a-spine`。
+
+项目里的 `.cursor/skills/`、`.claude/skills/` 只作用于那一个仓库。本技能放在用户主目录。
+
+### Codex / 任何读 AGENTS.md 的 agent
+
+默认是用户主目录里的全局文件。文件已经存在就合并。项目根目录的 `AGENTS.md` 是可选的第二步。
+
+```bash
+# 全部项目（默认）— Codex 家目录
 mkdir -p ~/.codex
+# 还没有 ~/.codex/AGENTS.md：
 curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
   -o ~/.codex/AGENTS.md
+# 已经有 ~/.codex/AGENTS.md？把 Have a Spine 那一段合并进去。不要整文件替换。
+
+# 可选：只给当前项目
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
+  -o AGENTS.md
 ```
 
 重启，或新开一个 Codex 会话，让它重新加载指令。
 
-### 方案 B — Cursor / Claude Code 技能
+### 方案 C — 可选：把整个仓库 vendor 进来
 
-```bash
-mkdir -p .cursor/skills/have-a-spine   # 或你的 skills 目录
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
-  -o .cursor/skills/have-a-spine/SKILL.md
-```
-
-然后：改落地页文案、FAQ、wiki、结账字符串时 `@have-a-spine`。
-
-### 方案 C — 把整个仓库 vendor 进来
+这不是默认。只有仓库必须给每次克隆钉死这份合同时才用。
 
 ```bash
 git submodule add https://github.com/NICKLING017/no-disclaimer-slop.git vendor/have-a-spine

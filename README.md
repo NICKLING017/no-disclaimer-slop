@@ -56,34 +56,70 @@ Adjacent projects fix related diseases ([anti-sycophancy](https://github.com/Fer
 
 ## Install (60 seconds)
 
-### Option A — Codex / any AGENTS.md agent
+> [!IMPORTANT]
+> **Send this to your agent to install this skill globally:**
+
+```text
+Install the Have a Spine skill globally. Do not put it inside a project.
+
+Download https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md
+and save it to ~/.cursor/skills/have-a-spine/SKILL.md (create the directories).
+
+Optionally also download https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md
+to ~/.codex/AGENTS.md. If that file already exists, merge this contract into it. Do not wipe other rules.
+
+When finished, confirm the paths you wrote.
+```
+
+That block is the install. Paste it to Cursor, Claude Code, Codex, or any other coding agent. The commands below are the same steps by hand. One global copy covers every project on this machine.
+
+### Cursor / Claude Code / similar — global skill
+
+| Agent | Global skill file |
+|---|---|
+| Cursor | `~/.cursor/skills/have-a-spine/SKILL.md` |
+| Claude Code | `~/.claude/skills/have-a-spine/SKILL.md` |
 
 ```bash
-# One project
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
-  -o AGENTS.md
+# Cursor — every project for this user (default)
+mkdir -p ~/.cursor/skills/have-a-spine
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
+  -o ~/.cursor/skills/have-a-spine/SKILL.md
 
-# Or merge: paste the "Have a Spine" section into your existing AGENTS.md
+# Claude Code — same file, user-global skills
+mkdir -p ~/.claude/skills/have-a-spine
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
+  -o ~/.claude/skills/have-a-spine/SKILL.md
+```
 
-# All projects (Codex home)
+Codex user skills use the same file at `~/.agents/skills/have-a-spine/SKILL.md` (`~/.codex/skills/` still loads). For Codex, the global `AGENTS.md` below is the path to install first.
+
+Open a new chat, then `@have-a-spine` (Cursor) or `/have-a-spine` (Claude Code) when editing landing copy, FAQ, wiki, or checkout strings.
+
+Leave project folders such as `.cursor/skills/` and `.claude/skills/` alone. Those apply to one repo. This skill belongs in your home directory.
+
+### Codex / any AGENTS.md agent
+
+Default is the global file in your home directory. Merge when you already have one. A project-root `AGENTS.md` is optional and second.
+
+```bash
+# All projects (default) — Codex home
 mkdir -p ~/.codex
+# No ~/.codex/AGENTS.md yet:
 curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
   -o ~/.codex/AGENTS.md
+# Already have ~/.codex/AGENTS.md? Merge the Have a Spine section into it. Do not replace the whole file.
+
+# Optional: this project only
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/AGENTS.md \
+  -o AGENTS.md
 ```
 
-Restart / new Codex session so it reloads instructions.
+Restart, or start a new Codex session, so it reloads instructions.
 
-### Option B — Cursor / Claude Code skill
+### Option C — optional: vendor the whole repo
 
-```bash
-mkdir -p .cursor/skills/have-a-spine   # or your skills dir
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/skills/have-a-spine/SKILL.md \
-  -o .cursor/skills/have-a-spine/SKILL.md
-```
-
-Then: `@have-a-spine` when editing landing copy, FAQ, wiki, checkout strings.
-
-### Option C — Vendor the whole repo
+Not the default. Use this only when a repository must pin the contract for every clone.
 
 ```bash
 git submodule add https://github.com/NICKLING017/no-disclaimer-slop.git vendor/have-a-spine
