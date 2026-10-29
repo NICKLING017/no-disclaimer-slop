@@ -1,4 +1,6 @@
-# Have a Spine（别当怂逼）
+[中文说明 →](./README.zh-CN.md)
+
+# Have a Spine
 
 > **Stop AI coding agents from writing coward copy into your product.**
 >
@@ -11,7 +13,7 @@
 
 <p align="center">
   <strong>Product voice beats model caution.</strong><br/>
-  诚实 ≠ 怂 &nbsp;·&nbsp; 有骨气 ≠ 撒谎 &nbsp;·&nbsp; 用户可见文案禁止条件反射式「可能 / 不保证 / results vary」
+  Honesty ≠ cowardice &nbsp;·&nbsp; A spine ≠ a lie &nbsp;·&nbsp; No reflexive “may / not guaranteed / results vary” on visitor copy
 </p>
 
 ---
@@ -135,4 +137,4 @@ MIT
 
 ---
 
-**别当怂逼。把话说清楚，把产品卖出去。**
+**Have a spine. Say it clearly. Sell the product.**
