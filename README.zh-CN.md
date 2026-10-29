@@ -170,6 +170,19 @@ bash check/grep-check.sh app/ components/ src/
 
 更多：[`examples/before-after.md`](./examples/before-after.md) · [`examples/page-templates.md`](./examples/page-templates.md)
 
+## RapClip 上线改写
+
+[rapclip.app](https://rapclip.app) 的真实产品文案。改写已合并：[PR 3](https://github.com/NICKLING017/rapclip.app/pull/3)。
+
+- **结账。** `I understand results may vary.` → `I have permission to use this photo and agree to the Terms.`（我有权使用这张照片，并同意条款。）
+- **首页。** `no guaranteed word-for-word lip sync, and results vary with the photo.` → `No MP3 uploads. No voice cloning. The clip uses the performance you picked, and your photo is the person in the frame.`（不收 MP3。不克隆声音。成片用你选的那段表演，照片里的人就是画面里的人。）
+- **定价。** `Length and output depend on the selected template.` → `Bulin 47 · 23.17 s · 720 × 1280 · 100 credits. Hotel Lobby · 15 s · 1280 × 720 · 100 credits. Freestyle · 15 s · 480 × 854 · 50 credits.`（Bulin 47 · 23.17 秒 · 720×1280 · 100 积分。Hotel Lobby · 15 秒 · 1280×720 · 100 积分。Freestyle · 15 秒 · 480×854 · 50 积分。）
+- **Freestyle 脚注。** `Your results will vary.` → `Your photo and your words go in the verse.`（你的照片和你的词，写进这段说唱。）
+- **播放器。** `Results vary with your photo.` → `{name} archive example. Original soundtrack.`（{名字} 档案示例。原声带。）
+- **共用限制。** `Freestyle may adapt your lyrics to fit the clip. Exact words and word-for-word lip sync are not guaranteed.` → `Freestyle uses your topic for a 15-second verse. It does not take an MP3 and it does not clone a voice.`（Freestyle 用你的话题做 15 秒说唱。不收 MP3，不克隆声音。）
+
+条款 / 隐私里的法律免责仍在白名单。
+
 ## 给谁用
 
 - 用 coding agent 上线 AI / SaaS / 游戏 wiki 的独立开发者

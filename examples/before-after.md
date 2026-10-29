@@ -4,6 +4,8 @@
 
 These are rewrites, not softer wraps. Copy the After. Do not ship the Before with a footnote glued on.
 
+Shipped RapClip pairs (checkout, homepage, pricing, player, Freestyle) are in the [README](../README.md#shipped-on-rapclip). Copy the After there the same way.
+
 A diff that keeps the Before on a hero, CTA, price, empty state, checkout line, or wiki title **FAILS THE TASK**.
 
 ## AI product landing

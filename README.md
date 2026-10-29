@@ -170,6 +170,19 @@ Full contract: [`AGENTS.md`](./AGENTS.md).
 
 More: [`examples/before-after.md`](./examples/before-after.md) · [`examples/page-templates.md`](./examples/page-templates.md)
 
+## Shipped on RapClip
+
+Real production copy from [rapclip.app](https://rapclip.app). Rewrites merged in [PR 3](https://github.com/NICKLING017/rapclip.app/pull/3).
+
+- **Checkout.** `I understand results may vary.` → `I have permission to use this photo and agree to the Terms.`
+- **Homepage.** `no guaranteed word-for-word lip sync, and results vary with the photo.` → `No MP3 uploads. No voice cloning. The clip uses the performance you picked, and your photo is the person in the frame.`
+- **Pricing.** `Length and output depend on the selected template.` → `Bulin 47 · 23.17 s · 720 × 1280 · 100 credits. Hotel Lobby · 15 s · 1280 × 720 · 100 credits. Freestyle · 15 s · 480 × 854 · 50 credits.`
+- **Freestyle footnote.** `Your results will vary.` → `Your photo and your words go in the verse.`
+- **Player.** `Results vary with your photo.` → `{name} archive example. Original soundtrack.`
+- **Limits.** `Freestyle may adapt your lyrics to fit the clip. Exact words and word-for-word lip sync are not guaranteed.` → `Freestyle uses your topic for a 15-second verse. It does not take an MP3 and it does not clone a voice.`
+
+Terms and Privacy legal hedges stay allowlisted.
+
 ## Who this is for
 
 - Indie hackers shipping AI / SaaS / game wikis with coding agents

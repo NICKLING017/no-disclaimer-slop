@@ -26,6 +26,7 @@ may not
 may vary
 might vary
 results vary
+results will vary
 results may vary
 results might vary
 your results may vary
@@ -36,6 +37,7 @@ your mileage may vary
 mileage may vary
 ymmv
 not guaranteed
+no guaranteed
 no guarantee
 no guarantees
 not a guarantee

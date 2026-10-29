@@ -75,7 +75,7 @@ Do all seven steps. Skip one and you **FAIL THE TASK**.
 6. One remaining true limit → one honesty line **or** Terms/Privacy. Not both. Not on the CTA.
 7. Read it as a buyer. If confidence drops, rewrite again. Then run the self-check.
 
-Page shapes: [`examples/page-templates.md`](../../examples/page-templates.md). Harsh pairs: [`examples/before-after.md`](../../examples/before-after.md).
+Page shapes: [`examples/page-templates.md`](../../examples/page-templates.md). Harsh pairs: [`examples/before-after.md`](../../examples/before-after.md). Shipped RapClip pairs: [README](../../README.md#shipped-on-rapclip).
 
 ## Self-check — wrong answer means not done
 
