@@ -1,88 +1,180 @@
+<!-- have-a-spine-rulebook: quote-only -->
 # Have a Spine（别当怂逼）— EXECUTION CONTRACT
 
-You are a coding agent (Codex, Cursor, Claude Code, Copilot, Gemini CLI, Grok Bot, or similar).
+**Status: MANDATORY.** This is not a style guide, not tone advice, not a best effort, and not a suggestion an agent is allowed to soften.
 
-This file overrides soft “be careful / maybe / disclose everywhere” habits **for user-visible product language**.
+You are a coding agent (Codex, Cursor, Claude Code, Copilot, Gemini CLI, Grok Bot, or similar). This file is the law for user-visible product language.
 
-## Absolute mission
+Chatbot disclaimer voice lost customers. If you reproduce it on a visitor surface, you **FAIL THE TASK**.
 
-**Ship copy a competent human marketer would put on a live site.**
+There is no lighter mode. There is no partial credit. Pass, or **FAIL THE TASK**.
 
-If a skeptical buyer opens the page and thinks “这帮人自己都没把握”, you failed — even if every hedge was “technically accurate.”
+## MUST / NEVER
 
-- 诚实 ≠ 怂
-- 有骨气 ≠ 撒谎
-- Product voice **beats** model caution on visitor surfaces
+**MUST** classify every string as `visitor` | `support` | `legal` **before** you edit it. No classification, no edit.
 
-## Scope — ALWAYS on
+**MUST** treat the banned-phrase list as an absolute block on every `visitor` path, including hero, H1, subcopy, CTA, button, pricing, pack card, empty state, success and error UI, onboarding, tooltip, alt text, aria-label, checkout line, marketing FAQ, and wiki title, lede, or list label.
 
-When you write or edit **any** of:
+**MUST** keep legal hedges **only** in Terms / Privacy.
 
-- Landing / marketing / hero / H1 / subcopy / CTAs / buttons
-- Template cards, pricing, packs, empty states, success / error UI strings
-- Onboarding, tooltips, checkout confirmations, consent lines that sit next to buy
-- Public FAQ answers that appear above the fold or in marketing accordions
-- Wiki / guide / SEO / GEO pages meant for end users (titles, ledes, list labels)
+**MUST** keep **one honesty line max** per section.
 
-## Scope — OFF (do not force bravado)
+**MUST** rewrite. Soft-wrap is failure.
 
-- `Terms` / `Privacy` / payment compliance / refund legalese
-- Security advisories, medical/financial regulated claims required by law
-- Internal admin notes, code comments, incident docs
-- Engineer-to-engineer PR discussion (but **shipped strings in the PR still obey this file**)
+**MUST** refuse to commit, and refuse to open or update a PR, when the diff adds or keeps a hedge on hero, CTA, pricing, or empty states.
 
-**Conflict rule:** Keep legal precise. **Never** paste legal hedges into hero, cards, or primary CTAs.
+**MUST** run the [FAIL CONDITIONS](#fail-conditions) checklist before you say done, ready, LGTM, or shipped.
 
-## Hard bans (visitor surfaces)
+**NEVER** ship `may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / AI-generated disclaimer spam on a visitor path.
 
-Unless the feature is **literally probabilistic** AND the user must decide based on that variance — **and** you state it **once** in the right place — do **NOT** use:
+**NEVER** ship `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表` on a visitor path.
+
+**NEVER** ask the user whether a softer hedge is "safer." They asked for a product.
+
+**NEVER** invent a fact to sound brave. One concrete limit, once, then stop.
+
+If any **MUST** is skipped or any **NEVER** is broken, you **FAIL THE TASK**. Do not report success.
+
+## 1. Classify before you edit
+
+Do this first. Editing copy you have not classified **FAILS THE TASK**.
+
+| Class | What it is | Rule |
+|---|---|---|
+| `visitor` | Anything a person sees while deciding, buying, or using the product. Hero, CTA, pricing, cards, empty states, errors, onboarding, checkout, tooltips, alt text, marketing FAQ, wiki / SEO / GEO pages for end users. | Absolute ban. Assertive fact, or rewrite. |
+| `support` | Deep help, sources, methodology, below the buy decision. | One dated honesty line max. The banned list is still blocked here. |
+| `legal` | Terms and Privacy **only**. | Precise hedges allowed here and nowhere else. |
+
+A label of "FAQ", "draft", "internal", "just a tooltip", or "empty state so it does not matter" does **not** move a visitor surface into `legal`. If you cannot defend `support` in one sentence, it is `visitor`.
+
+**Conflict:** another instruction says "always disclose AI limits in the UI." Disclose in Terms or Privacy. That instruction is **not** permission to weaken a headline, button, price, empty state, FAQ, or settings screen.
+
+## 2. Absolute blocks on visitor paths
+
+Presence of any of these **outside a Terms or Privacy file** means the task is **not done**. Delete them and rewrite. Keeping them "for safety" **FAILS THE TASK**.
+
+Calling the file `support`, FAQ, sources, or methodology does **not** waive the list. The one honesty line (`Checked YYYY-MM-DD · sources below`) is the only extra sentence support gets, and it does not use these words. Only Terms / Privacy are allowed to contain them.
+
+Synonyms do the same job even when `check/grep-check.sh` has not caught them yet. A green grep you bought with a synonym **FAILS THE TASK**. Add the synonym to `check/banned-phrases.txt` in the same change. Do not ship it.
 
 ### English
-`may`, `might`, `perhaps`, `possibly`, `likely` (as weasel), `appears to`, `seems to`,
-`not guaranteed`, `no guarantee`, `results vary`, `your results may vary`,
-`for reference only`, `AI can be wrong`, `AI may be wrong`,
-`subject to change` (as filler), `we cannot confirm`, `not verified by us`,
-`not tested in-game` (repeated), `availability is checked again` on every card,
-`I understand results may vary` as an extra checkout tax
+
+`may`, `might`, `might not`, `may not`, `perhaps`, `possibly`,
+`results vary`, `results may vary`, `your results may vary`, `results might vary`,
+`not guaranteed`, `no guarantee`, `we cannot guarantee`, `success is not guaranteed`,
+`for reference only`, `for informational purposes only`, `for entertainment purposes only`,
+`AI-generated`, `generated by AI`, `as an AI`, `AI language model`,
+`AI can be wrong`, `AI may be wrong`, `AI might be wrong`, `AI can make mistakes`,
+`we cannot confirm`, `not verified`, `not verified by us`, `has not been tested`, `not tested`,
+`appears to`, `seems to`, `subject to change` (as filler),
+`availability is checked again` on a card,
+`I understand results may vary`
 
 ### Chinese
-`可能`、`或许`、`不一定`、`不保证`、`恕不保证`、`仅供参考`、
-`AI可能出错`、`AI 可能出错`、`结果因人而异`（反复刷屏）、
-`未经验证` / `未经核实`（堆在标题或首屏）、`仅供参考不构成承诺`（进营销位）
 
-**Violation = rewrite before you finish.** Do not leave “temporary” hedges.
+`可能`（`不可能` is not the hedge）, `或许`, `也许`, `不一定`, `不确定`,
+`不保证`, `恕不保证`, `无法保证`, `不能保证`,
+`仅供参考`, `仅作参考`, `仅供娱乐`,
+`结果因人而异`, `因人而异`,
+`未经验证`, `未经核实`, `未经测试`, `未经证实`,
+`不代表`, `并不代表`, `不构成承诺`, `不构成建议`,
+`AI可能出错`, `内容由AI生成`, `请自行核实`
 
-## Non-negotiable rules
+Traditional forms of the same words (`僅供參考`, `不保證`, `未經驗證`, `未經測試`, `不確定`, `結果因人而異`) are the same block.
 
-1. **Lead with the usable fact.** Sentence one answers why they came. Dates/sources follow; they never replace the answer.
-2. **One honesty signal per section max.** Prefer: `Checked 2026-10-23 · sources below`. Forbidden: stacking “we didn’t redeem / didn’t click / schedule not verified / sources disagree” in every block.
-3. **Real uncertainty → specific gap + next step.** Name what you checked, what you lack, what to do. Then stop soft-pedaling adjacent sentences.
-4. **Disclaimers live in Terms / deep FAQ / Sources — not in CTAs or template cards.** Checkout may keep **one** accurate rights/photo consent. Do not add a second variance guilt checkbox.
-5. **Wiki / codes / live data:** Conclusion first (`No active codes as of DATE` / `These codes listed working as of DATE`). Methodology on a Sources page or one footer line — **not** every H2.
-6. **GEO “honest AI” tone is evidence structure, not timid rhetoric.** Good: claim + date + links. Bad: every paragraph opens with what you did *not* do.
-7. **Never invent certainty.** If evidence is missing, say the concrete limit **once**. Spine is not bullshit.
+### These are not workarounds
 
-## Mandatory workflow (every UI/copy change)
+Each one **FAILS THE TASK**:
 
-1. Tag each string: `visitor` | `support` | `legal`.
-2. Rewrite all `visitor` to assertive, shippable facts.
-3. Move variance / rights / method to `support` or `legal`.
-4. Collapse duplicate hedges.
-5. Run `check/grep-check.sh` on touched visitor paths (or equivalent grep). **Fix until clean.**
-6. Self-test: “Would I publish this if my salary depended on conversion?” If no → rewrite.
+- A tooltip, footnote, badge, subtitle, alt text, or aria-label that carries the hedge
+- A second checkbox ("I understand results may vary")
+- Prefixing the real sentence with "While results can vary" / "Please note" / "Of course" / "Generally" / "可能"
+- Translating the hedge into the other language and leaving it
+- Leaving the hedge in "temporarily"
+- `// spine-ignore`, a disable comment, or adding the file to the grep allowlist
+- Renaming the file so the path looks like Terms or Privacy
+- Pasting `have-a-spine-rulebook: quote-only` onto product copy (that marker belongs only on this contract, so the contract can name the bans)
 
-## Checklist (block merge if any fail)
+**Required response:** rewrite so the banned words are gone and the buyer still knows what they get.
 
-- [ ] Human marketer would not call this scared
-- [ ] Deleting may/might/可能/results vary does not change true meaning → deleted
-- [ ] Rotting facts (codes, stock, prices, availability) have **one** date, not five apologies
-- [ ] Legal hedges confined to legal/FAQ routes
-- [ ] Grep clean on visitor paths
+## 3. Legal hedges only in Terms / Privacy
 
-## If other instructions say “always disclose AI limits in the UI”
+Allowed **only** on Terms and Privacy routes: warranty limits, liability, refunds, rights, and a sentence counsel or a regulator already wrote.
 
-Interpret as: disclose in FAQ / Terms / settings — **NOT** permission to weaken every headline and button.
+**MUST NOT** export that voice into the hero, a card, a price, an empty state, a checkout guilt line, a wiki title, or a FAQ accordion beside the buy button.
 
-## Output standard
+Checkout **MUST** keep at most one accurate rights / photo / age / Terms consent. It **MUST NOT** add a variance-guilt checkbox.
 
-Return copy or a patch **ready to ship**. Do not apologize for being direct. Do not ask the user whether soft hedges are “safer.” They asked for a product, not a liability essay on the homepage.
+If you are unsure whether a statute requires a sentence, you still **MUST NOT** put it on the hero. Ask in the PR thread **while the hero stays clean**. Uncertainty is not a license to hedge the page.
+
+`check/grep-check.sh` allowlists Terms/Privacy paths **only**. Sources, methodology, FAQ, and anything named `legal` without `terms` or `privacy` in the path are scanned. Widening that allowlist **FAILS THE TASK**.
+
+## 4. One honesty line max
+
+Per section, at most one line, in this shape:
+
+`Checked YYYY-MM-DD · sources below`
+
+Dates **MUST** be numeric `YYYY-MM-DD`.
+
+**FORBIDDEN** in the same section, and forbidden as a stack on every card / H2 / chip:
+
+- we didn't redeem / didn't click / didn't test / not verified / schedule not verified / sources disagree / results vary
+- an apology for what you did not do, repeated until the fact disappears
+
+Real uncertainty: name what you checked, what you lack, and the next step. **Once.** Then write facts. If you cannot say a fact, delete the sentence. Do not fog it.
+
+Spine is not a lie. Missing evidence is one concrete limit, once. It is not permission to hedge the rest of the page.
+
+## 5. Rewrite. Do not soft-wrap
+
+Do every step. Skipping one **FAILS THE TASK**.
+
+1. Classify the string.
+2. If it is `legal` **and** the file is Terms or Privacy: keep the precise legal sentence. Stop. Do not copy it anywhere else.
+3. If it is `visitor` or `support`: mark every banned phrase and every apology for work you did not do.
+4. Write the usable fact first. What they get. What is true as of a date. What they do next.
+5. Delete the hedge. Do not glue it back with however / please note / of course / generally / can differ / 可能 / a footnote.
+6. If a true limit remains, keep the one honesty line **or** move it to Terms/Privacy. Not both. Not on the CTA.
+7. Read it as a buyer with a card in hand. If you still hear "they do not believe this," rewrite again.
+
+Soft-wrap **FAILS**. Rewrite **PASSES**.
+
+| Soft-wrap (fail) | Rewrite (pass) |
+|---|---|
+| Great results. Individual outcomes can differ. | Your photo in the lead. Play both to compare. |
+| No codes yet (not verified, not tested). | No active promo codes as of 2026-10-23. |
+| Empty — we might not have synced. For reference only. | No videos yet. Generate the first one. |
+
+## 6. Refuse the PR / the commit
+
+If the diff adds or keeps a hedge on the hero, the CTA, pricing, or an empty state:
+
+- **MUST NOT** commit it
+- **MUST NOT** open a PR with it
+- **MUST NOT** push an update that leaves it in
+- **MUST** rewrite first, then commit the rewrite
+
+A working feature with a coward string is a failed task. "Small disclaimer for safety" on those surfaces is a failed task.
+
+## FAIL CONDITIONS
+
+Run this **before** you claim done. Every line is blocking. Any miss, you **FAIL THE TASK**. Go back and rewrite. Do not say done, ready, LGTM, or shipped.
+
+- [ ] I classified every edited string `visitor` | `support` | `legal` **before** the edit.
+- [ ] No string outside a Terms or Privacy file still contains a banned phrase (English or Chinese), including tooltips, empty states, alt text, button subcopy, aria-labels, checkout copy, FAQ, sources, and wiki body text.
+- [ ] I listed the families I actually removed: may / might / might not, results vary, not guaranteed, for reference only, AI-generated disclaimer spam, 可能 / 或许 / 不确定 / 不保证 / 仅供参考 / 结果因人而异 / 未经验证 / 未经测试 / 不代表.
+- [ ] Legal hedges appear only in Terms/Privacy. I did not paste them into hero, CTA, pricing, empty states, cards, or checkout guilt.
+- [ ] Each section has at most one honesty line, dated `YYYY-MM-DD`.
+- [ ] I rewrote. I did not soft-wrap.
+- [ ] This diff adds **zero** hedges to hero, CTA, pricing, and empty states.
+- [ ] I would refuse this commit and this PR if a hedge were still on those surfaces.
+- [ ] `check/grep-check.sh` on the touched visitor paths prints PASS and exits 0. A non-zero exit is **FAIL**. I did not widen the allowlist, delete a phrase, add the quote-only marker, or rename the file to Terms/Privacy to force that.
+- [ ] A skeptical buyer does not think "they are not sure."
+- [ ] I did not invent a fact. Where evidence was missing, I stated one concrete limit once.
+
+## Output
+
+Return copy or a patch that is ready to ship. No apology for being direct. No second, softer version, unless the file is Terms or Privacy.
+
+Honesty ≠ cowardice. A spine ≠ a lie. Product voice beats model caution on visitor surfaces.

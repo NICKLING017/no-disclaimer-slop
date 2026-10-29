@@ -1,3 +1,5 @@
+<!-- have-a-spine-rulebook: quote-only -->
+
 [English →](./README.md)
 
 # Have a Spine（别当怂逼）
@@ -18,6 +20,18 @@
 
 ---
 
+## 这是强制合同
+
+这是执行合同，不是文风建议，不是「尽量」，也不是模型卡片喜欢免责声明就可以写软的东西。
+
+写代码的 agent 若在首屏、CTA、定价或空状态上加怂话——换个更软的同义词、脚注、tooltip、第二颗勾选框——这次任务失败。不许提交。不许开这个 PR。
+
+声称做完之前，必须逐条跑完 [FAIL CONDITIONS](./AGENTS.md#fail-conditions)。[`check/grep-check.sh`](./check/grep-check.sh) 在条款 / 隐私以外扫到禁词时，必须以非零状态退出并打印 `FAIL`。来源页、FAQ、方法论、营销路径都不在白名单里。为了变绿去改白名单或删禁词，同样算失败。
+
+English: [`README.md`](./README.md)
+
+---
+
 ## 为什么有这个仓库
 
 写代码的 agent 被训练成**先打太极**。落到营销页上就变成：
@@ -35,10 +49,10 @@
 
 | 文件 | 用途 |
 |---|---|
-| [`AGENTS.md`](./AGENTS.md) | 硬执行合同 —— 贴到仓库根目录或 `~/.codex/` |
-| [`skills/have-a-spine/SKILL.md`](./skills/have-a-spine/SKILL.md) | 技能配方，agent 可以 `@` / 加载 |
-| [`examples/`](./examples/) | 改前改后 + 按页面类型的改写模板 |
-| [`check/grep-check.sh`](./check/grep-check.sh) | 怂话打到访客路径上时，CI / 本地检查直接失败 |
+| [`AGENTS.md`](./AGENTS.md) | 硬执行合同。[FAIL CONDITIONS](./AGENTS.md#fail-conditions) 不过就不能说做完 |
+| [`skills/have-a-spine/SKILL.md`](./skills/have-a-spine/SKILL.md) | 同一份合同的技能版：触发条件、决策树、改写步骤、卡住「做完」的自检 |
+| [`examples/`](./examples/) | 更狠的改前改后 + 按页面类型的改写模板 |
+| [`check/grep-check.sh`](./check/grep-check.sh) | 条款 / 隐私以外扫到禁词时，非零退出并打印 `FAIL` |
 
 ## 安装（60 秒）
 
@@ -79,25 +93,31 @@ git submodule add https://github.com/NICKLING017/no-disclaimer-slop.git vendor/h
 ### 验证
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/grep-check.sh -o /tmp/spine-check.sh
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/banned-phrases.txt -o /tmp/banned-phrases.txt
-# 把 banned-phrases.txt 放到脚本旁边的 ../check/，或改路径，然后：
+mkdir -p check
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/grep-check.sh -o check/grep-check.sh
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/banned-phrases.txt -o check/banned-phrases.txt
+chmod +x check/grep-check.sh
+
+# 先证明这道门是失败关闭的，再扫访客文案。
+bash check/grep-check.sh --self-test
 bash check/grep-check.sh app/ components/ src/
 ```
 
-非零退出 = 访客路径上还有怂话（条款 / 隐私 / 来源页在白名单里）。
+`--self-test` 必须打印 `self-test PASS`。扫到怂话会打印 `FAIL` 并以非零状态退出。这个结果卡住「做完」。白名单**只有条款 / 隐私** —— 写在 [`check/grep-check.sh`](./check/grep-check.sh) 开头。FAQ、来源页、方法论、首屏、定价、空状态都在扫描范围内。
 
 ## 一屏规则
 
-1. **给每句文案分类**：`visitor` | `support` | `legal`。
-2. **访客面**（首屏、CTA、卡片、定价）：把事实说死。禁止条件反射式打太极。
+下面每条都是义务。卡住完成的清单在 [FAIL CONDITIONS](./AGENTS.md#fail-conditions)。漏一条，任务失败。
+
+1. **改之前先给每句文案分类**：`visitor` | `support` | `legal`。
+2. **访客面**（首屏、CTA、卡片、定价、空状态）：把事实说死。禁词在 FAQ 和来源页同样不算豁免。
 3. **每个版块最多一行诚实标记**（`Checked DATE · sources`）—— 不要堆一串「我们本人并没有……」。
 4. **真不知道** → 一个具体缺口 + 下一步。不要每句话都起雾。
-5. **法律免责留在条款 / FAQ。** 绝不要贴进首屏。
+5. **法律免责只留在条款 / 隐私。** FAQ 不行。首屏不行。
 6. **有骨气 ≠ 撒谎。** 没有证据 → 把限度说一次，然后停止打太极。
 
-**访客面上默认禁词：**  
-`may` / `might` / `results vary` / `not guaranteed` / `for reference only` / `AI can be wrong` / `可能` / `不保证` / `仅供参考` / `结果因人而异`（刷屏）/ 标题上的 `未经验证`……
+**条款 / 隐私以外的禁词：**  
+`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `AI-generated` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表`……
 
 完整合同：[`AGENTS.md`](./AGENTS.md)。
 
@@ -106,7 +126,6 @@ bash check/grep-check.sh app/ components/ src/
 ```diff
 - Same scene. A new lead. Results vary with your photo.
 + Same scene. Your photo in the lead. Play both to compare.
-  (variance once in FAQ)
 
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
@@ -129,7 +148,7 @@ bash check/grep-check.sh app/ components/ src/
 
 ## 贡献
 
-欢迎 PR：更硬的反模式、更好的 grep、更多来自真实站点的改前改后（抹掉密钥）。`AGENTS.md` 保持大约 200 行以内的*合同*，长文放 `examples/`。
+欢迎 PR：更硬的反模式、更好的 grep、更多来自真实站点的改前改后（抹掉密钥）。[FAIL CONDITIONS](./AGENTS.md#fail-conditions) 留在 `AGENTS.md` 里，别稀释成一篇博文。长文和改写放 `examples/`。
 
 ## 许可证
 

@@ -1,3 +1,5 @@
+<!-- have-a-spine-rulebook: quote-only -->
+
 [中文说明 →](./README.zh-CN.md)
 
 # Have a Spine
@@ -18,6 +20,18 @@
 
 ---
 
+## This is mandatory
+
+This is an execution contract. It is not tone advice, not a best effort, and not something an agent is allowed to soften because a model card likes disclaimers.
+
+A coding agent that adds a hedge to the hero, the CTA, pricing, or an empty state — a softer synonym, a footnote, a tooltip, or a second checkbox — has failed the task. Do not commit that. Do not open that PR.
+
+Before you call the work done, run every item in [FAIL CONDITIONS](./AGENTS.md#fail-conditions). [`check/grep-check.sh`](./check/grep-check.sh) exits non-zero and prints `FAIL` when a banned phrase sits outside Terms/Privacy. Sources, FAQ, methodology, and marketing paths are not on the allowlist. Editing the allowlist or the phrase list to force a green check is also a failure.
+
+中文：[`README.zh-CN.md`](./README.zh-CN.md)
+
+---
+
 ## Why this exists
 
 Coding agents are trained to **hedge**. On a marketing page that becomes:
@@ -35,10 +49,10 @@ Adjacent projects fix related diseases ([anti-sycophancy](https://github.com/Fer
 
 | File | Purpose |
 |---|---|
-| [`AGENTS.md`](./AGENTS.md) | Hard execution contract — paste at repo root or `~/.codex/` |
-| [`skills/have-a-spine/SKILL.md`](./skills/have-a-spine/SKILL.md) | Skill recipe agents can `@` / load |
-| [`examples/`](./examples/) | Before/after + page-type rewrite templates |
-| [`check/grep-check.sh`](./check/grep-check.sh) | Fail CI / local check when coward phrases hit visitor paths |
+| [`AGENTS.md`](./AGENTS.md) | Hard execution contract. [FAIL CONDITIONS](./AGENTS.md#fail-conditions) block "done" |
+| [`skills/have-a-spine/SKILL.md`](./skills/have-a-spine/SKILL.md) | Same contract as a skill: triggers, decision tree, rewrite algorithm, blocking self-check |
+| [`examples/`](./examples/) | Harsh before/after + page-type rewrite templates |
+| [`check/grep-check.sh`](./check/grep-check.sh) | Exits non-zero and prints `FAIL` when a banned hedge is outside Terms/Privacy |
 
 ## Install (60 seconds)
 
@@ -79,25 +93,31 @@ git submodule add https://github.com/NICKLING017/no-disclaimer-slop.git vendor/h
 ### Verify
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/grep-check.sh -o /tmp/spine-check.sh
-curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/banned-phrases.txt -o /tmp/banned-phrases.txt
-# place banned-phrases.txt next to the script as ../check/ or edit paths, then:
+mkdir -p check
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/grep-check.sh -o check/grep-check.sh
+curl -fsSL https://raw.githubusercontent.com/NICKLING017/no-disclaimer-slop/main/check/banned-phrases.txt -o check/banned-phrases.txt
+chmod +x check/grep-check.sh
+
+# Prove the gate fails closed, then scan visitor copy.
+bash check/grep-check.sh --self-test
 bash check/grep-check.sh app/ components/ src/
 ```
 
-Non-zero exit = coward phrases still on visitor paths (Terms/Privacy/Sources allowlisted).
+`--self-test` must print `self-test PASS`. A scan that finds a hedge prints `FAIL` and exits non-zero. That result blocks "done." Allowlist is **Terms / Privacy only** — documented at the top of [`check/grep-check.sh`](./check/grep-check.sh). FAQ, sources, methodology, hero, pricing, and empty states are scanned.
 
 ## The rule in one screen
 
-1. **Classify** every string: `visitor` | `support` | `legal`.
-2. **Visitor** (hero, CTA, cards, pricing): assertive facts. No reflexive hedges.
+These are obligations. The blocking list is [FAIL CONDITIONS](./AGENTS.md#fail-conditions). Skipping one fails the task.
+
+1. **Classify** every string before you edit it: `visitor` | `support` | `legal`.
+2. **Visitor** (hero, CTA, cards, pricing, empty states): assertive facts. Banned phrases are blocked. FAQ and sources are not a waiver.
 3. **One honesty line max** per section (`Checked DATE · sources`) — not a stack of “we didn’t personally…”.
 4. **Real unknown** → one concrete gap + next step. Not fog on every sentence.
-5. **Legal hedges stay in Terms/FAQ.** Never paste them into the hero.
+5. **Legal hedges stay in Terms/Privacy only.** Not in FAQ. Not in the hero.
 6. **Spine ≠ lying.** No evidence → say the limit once, then stop hedging.
 
-**Banned on visitor surfaces (defaults):**  
-`may` / `might` / `results vary` / `not guaranteed` / `for reference only` / `AI can be wrong` / `可能` / `不保证` / `仅供参考` / `结果因人而异` (spam) / `未经验证` on titles…
+**Banned outside Terms/Privacy:**  
+`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `AI-generated` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表`…
 
 Full contract: [`AGENTS.md`](./AGENTS.md).
 
@@ -106,7 +126,6 @@ Full contract: [`AGENTS.md`](./AGENTS.md).
 ```diff
 - Same scene. A new lead. Results vary with your photo.
 + Same scene. Your photo in the lead. Play both to compare.
-  (variance once in FAQ)
 
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
@@ -129,7 +148,7 @@ More: [`examples/before-after.md`](./examples/before-after.md) · [`examples/pag
 
 ## Contributing
 
-PRs welcome: harder anti-patterns, better greps, more before/after from real sites (scrub secrets). Keep `AGENTS.md` under ~200 lines of *contract*, put essays in `examples/`.
+PRs welcome: harder anti-patterns, better greps, more before/after from real sites (scrub secrets). Keep [FAIL CONDITIONS](./AGENTS.md#fail-conditions) in `AGENTS.md`. Do not dilute them into a blog post. Essays and rewrites live in `examples/`.
 
 ## License
 
