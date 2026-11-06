@@ -28,7 +28,10 @@
 #   hero does not allowlist the hero.
 #   Do not add product paths to this list. Widening it FAILS THE TASK
 #   (AGENTS.md). Renaming a hero so the path looks like Terms or Privacy
-#   FAILS THE TASK.
+#   FAILS THE TASK. privacy-note, terms-and-conditions-summary, and
+#   legal/notice are not allowlisted.
+#   There is no skip flag, no --allow, and no environment variable.
+#   Adding one FAILS THE TASK.
 #
 # QUOTE-ONLY SKIP — NOT AN ALLOWLIST
 #   This pack names the banned strings, so those files contain them.
@@ -97,6 +100,35 @@ if [[ "${1:-}" == "--self-test" ]]; then
     printf 'have-a-spine-rulebook: quote-only\nResults vary\n' > "$tmp/README.md"
     printf 'Results vary. See the terms before you buy.\n' > "$tmp/app/see-terms.md"
     printf 'Starter pack. 40 credits. One credit, one render.\n' > "$tmp/app/price-clean.md"
+    printf 'Checked 2026-11-06 · sources below\n' > "$tmp/app/honesty.md"
+    printf 'Round 3\nHealth 100\n15:00 left\n' > "$tmp/app/hud.md"
+    printf 'https://github.com/NICKLING017/no-disclaimer-slop\n40 credits. One credit, one render.\n' > "$tmp/app/repo-url.md"
+
+    # Each GPT fixture below must contain the new phrase and no older ban,
+    # or deleting the new line would still go red for the wrong reason.
+    printf 'For safety, keep the visor down.\n' > "$tmp/app/for-safety.md"
+    printf 'It is worth noting that the round lasts 15 minutes.\n' > "$tmp/app/worth-noting.md"
+    printf 'I should mention the season ends on 2026-11-06.\n' > "$tmp/app/should-mention.md"
+    printf 'Please note the round timer.\n' > "$tmp/app/please-note.md"
+    printf 'Just to be safe.\n' > "$tmp/app/just-safe.md"
+    printf 'Of course the match is 15 minutes.\n' > "$tmp/app/of-course.md"
+    printf 'Outputs can be inaccurate.\n' > "$tmp/app/inaccurate.md"
+    printf 'Play at your own risk.\n' > "$tmp/app/own-risk.md"
+    printf 'We are not liable for lost runs.\n' > "$tmp/app/not-liable.md"
+    printf 'This mode is not medical advice.\n' > "$tmp/app/not-medical.md"
+    printf '免责声明\n' > "$tmp/app/mianze.md"
+    printf '温馨提示\n' > "$tmp/app/wenxin.md"
+    printf '保险起见\n' > "$tmp/app/baoxian.md"
+    printf '仅供学习\n' > "$tmp/app/jingongxuexi.md"
+    printf '以实际为准\n' > "$tmp/app/yishiji.md"
+    printf '最终解释权\n' > "$tmp/app/jieshi.md"
+    printf '后果自负\n' > "$tmp/app/houguo.md"
+    printf '你用你的猪脑想一想\n' > "$tmp/app/lecture-zh.md"
+    printf '傻逼防御性文案\n' > "$tmp/app/defensive-zh.md"
+    printf 'Would a normal product show this under the health bar?\n' > "$tmp/app/lecture-en.md"
+    printf 'I already installed the rules.\n' > "$tmp/app/installed.md"
+    printf 'Results vary.\n' > "$tmp/app/privacy-note.md"
+    printf 'For reference only.\n' > "$tmp/legal/terms-and-conditions-summary.md"
 
     printf 'quote\n' > "$tmp/proj/vendor/pack/check/banned-phrases.txt"
     printf '#!/bin/true\n' > "$tmp/proj/vendor/pack/check/grep-check.sh"
@@ -156,6 +188,29 @@ if [[ "${1:-}" == "--self-test" ]]; then
     expect_fail "line text mentioning terms is not an allowlist" "$tmp/app/see-terms.md"
     expect_fail "product README next to a vendored pack" "$tmp/proj/README.md"
     expect_fail "product hero next to a vendored pack" "$tmp/proj/src/Hero.tsx"
+    expect_fail "for safety" "$tmp/app/for-safety.md"
+    expect_fail "worth noting" "$tmp/app/worth-noting.md"
+    expect_fail "I should mention" "$tmp/app/should-mention.md"
+    expect_fail "please note" "$tmp/app/please-note.md"
+    expect_fail "just to be safe" "$tmp/app/just-safe.md"
+    expect_fail "of course" "$tmp/app/of-course.md"
+    expect_fail "outputs can be inaccurate" "$tmp/app/inaccurate.md"
+    expect_fail "at your own risk" "$tmp/app/own-risk.md"
+    expect_fail "not liable" "$tmp/app/not-liable.md"
+    expect_fail "not medical advice" "$tmp/app/not-medical.md"
+    expect_fail "免责声明" "$tmp/app/mianze.md"
+    expect_fail "温馨提示" "$tmp/app/wenxin.md"
+    expect_fail "保险起见" "$tmp/app/baoxian.md"
+    expect_fail "仅供学习" "$tmp/app/jingongxuexi.md"
+    expect_fail "以实际为准" "$tmp/app/yishiji.md"
+    expect_fail "最终解释权" "$tmp/app/jieshi.md"
+    expect_fail "后果自负" "$tmp/app/houguo.md"
+    expect_fail "猪脑 lecture" "$tmp/app/lecture-zh.md"
+    expect_fail "防御性文案 lecture" "$tmp/app/defensive-zh.md"
+    expect_fail "would a normal product show" "$tmp/app/lecture-en.md"
+    expect_fail "I already installed the rules" "$tmp/app/installed.md"
+    expect_fail "privacy-note is not a privacy policy" "$tmp/app/privacy-note.md"
+    expect_fail "terms-and-conditions-summary is not terms" "$tmp/legal/terms-and-conditions-summary.md"
 
     expect_pass "clean hero" "$tmp/app/clean.md"
     expect_pass "clean price" "$tmp/app/price-clean.md"
@@ -168,6 +223,9 @@ if [[ "${1:-}" == "--self-test" ]]; then
     expect_pass "maybe is not the word may" "$tmp/app/maybe.md"
     expect_pass "vendored pack README is quote-only" "$tmp/proj/vendor/pack/README.md"
     expect_pass "vendored pack AGENTS.md is quote-only" "$tmp/proj/vendor/pack/AGENTS.md"
+    expect_pass "honesty line" "$tmp/app/honesty.md"
+    expect_pass "game HUD" "$tmp/app/hud.md"
+    expect_pass "no-disclaimer repo url is not a disclaimer" "$tmp/app/repo-url.md"
 
     echo "have-a-spine: self-test PASS"
   }
@@ -332,8 +390,10 @@ if [[ "$fail" -ne 0 ]]; then
   echo "This is a failed task. Rewrite the sentence. Do not soft-wrap it."
   echo "Do not add the path to the allowlist. Do not delete the phrase to go green."
   echo "Do not rename the file to Terms or Privacy. Do not paste the quote-only marker on product copy."
+  echo "Do not add a skip flag or an env var. There is not one, and adding one FAILS THE TASK."
   echo "Allowlist is Terms/Privacy ONLY: terms, terms-of-service, terms-and-conditions, tos, privacy, privacy-policy."
-  echo "FAQ, sources, methodology, hero, CTA, pricing, empty states, checkout, and wiki are not allowlisted."
+  echo "FAQ, sources, methodology, hero, CTA, pricing, empty states, checkout, wiki, onboarding, and HUD are not allowlisted."
+  echo "for safety / worth noting / I should mention / please note / of course / not medical advice / at your own risk / not liable / can be inaccurate / 免责声明 / 温馨提示 / 仅供学习 / 以实际为准 / 最终解释权 / 后果自负 / a lecture: still hedges. Rewrite."
   exit 1
 fi
 

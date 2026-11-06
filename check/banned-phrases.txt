@@ -155,3 +155,396 @@ AI可能出錯
 請自行核實
 请自行判断
 請自行判斷
+请自行承担
+請自行承擔
+请自行辨别
+請自行辨別
+请自行甄别
+請自行甄別
+
+# --- GPT loopholes: soft-wrap, ass-cover, lecture ---
+# These are the exits GPT uses after the obvious "may / results vary" bans.
+# Do not delete a line because a scan went red. Rewrite the sentence.
+# Bare "maybe" / "usually" / "typically" stay off this file: they collide with
+# code comments. On a visitor sentence they are still hedges (AGENTS.md).
+
+# disclaimer, but not the repo slug no-disclaimer / nodisclaimer
+re:disclaimer:(?<!no-?)disclaimers?\b
+see the disclaimer
+see disclaimer
+full disclaimer
+legal disclaimer
+medical disclaimer
+financial disclaimer
+small disclaimer
+safety disclaimer
+add a disclaimer
+
+for safety
+for your safety
+just to be safe
+just to be sure
+to be safe
+just in case
+on the safe side
+abundance of caution
+out of caution
+as a precaution
+safety note
+best effort
+
+worth noting
+worth mentioning
+i should mention
+i should note
+i should point out
+i must mention
+i must note
+i must point out
+i have to mention
+i need to mention
+i need to note
+let me note
+let me mention
+please note
+please be aware
+please be advised
+be advised
+keep in mind
+bear in mind
+it's important to note
+it is important to note
+it’s important to note
+it's important to remember
+it is important to remember
+important to mention
+a quick note
+side note
+fair warning
+just so you know
+for what it's worth
+grain of salt
+pinch of salt
+generally speaking
+as a general rule
+that being said
+having said that
+with that said
+that said,
+of course
+note that
+caveat
+
+can vary
+will vary
+varies by
+varies with
+outcomes vary
+outcome varies
+experiences vary
+experience varies
+accuracy varies
+quality varies
+re:can differ:\bcan differ\b
+re:will differ:\bwill differ\b
+outcomes differ
+results differ
+individual results
+individual experience
+your experience will
+your experience can
+
+can be inaccurate
+could be inaccurate
+can be wrong
+could be wrong
+not always accurate
+not always correct
+not always right
+contain inaccuracies
+prone to error
+prone to mistakes
+prone to hallucination
+can hallucinate
+ai hallucination
+as a language model
+as an language model
+i'm an ai
+i am an ai
+i’m an ai
+i'm just an ai
+i am just an ai
+i’m just an ai
+ai-generated content can be inaccurate
+ai generated content can be inaccurate
+outputs can be inaccurate
+output can be inaccurate
+outputs can be wrong
+output can be wrong
+content can be inaccurate
+content can be wrong
+for educational purposes
+educational purposes only
+for education only
+
+not financial advice
+not medical advice
+not legal advice
+not investment advice
+not professional advice
+not tax advice
+not betting advice
+not gambling advice
+not health advice
+this is not advice
+is not advice
+isn't advice
+isn’t advice
+does not constitute advice
+not a substitute for professional
+not a substitute for medical
+not a substitute for legal
+not a substitute for financial
+does not provide medical
+does not provide financial
+does not provide legal
+doesn't provide medical
+doesn't provide financial
+doesn't provide legal
+no medical advice
+no financial advice
+no legal advice
+i'm not a doctor
+i am not a doctor
+i’m not a doctor
+i'm not a lawyer
+i am not a lawyer
+i’m not a lawyer
+we are not doctors
+we are not lawyers
+not a financial advisor
+not your doctor
+not your lawyer
+this is not a doctor
+this is not a hospital
+consult a professional
+consult your doctor
+consult a doctor
+consult a lawyer
+consult an attorney
+consult your physician
+consult a financial
+seek professional advice
+seek medical advice
+seek legal advice
+talk to your doctor
+talk to a lawyer
+do your own research
+word:dyor
+
+at your own risk
+your own risk
+at your own discretion
+we are not responsible
+we're not responsible
+we’re not responsible
+we aren't responsible
+we aren’t responsible
+not responsible for
+we are not liable
+we're not liable
+we’re not liable
+not liable
+no liability
+cannot be held responsible
+can't be held responsible
+can’t be held responsible
+will not be held responsible
+unable to guarantee
+can't guarantee
+can’t guarantee
+cannot ensure
+can't ensure
+can’t ensure
+cannot promise
+can't promise
+can’t promise
+no promises
+make no promise
+makes no promise
+we promise nothing
+
+# GPT lecture. The model does not get to scold the user instead of rewriting.
+i already installed
+already installed the rules
+installed this repo
+use your pig brain
+pig brain
+would a normal game or product
+would a normal product show
+would a normal game show
+normal game or product
+
+# --- Chinese GPT loopholes ---
+未必
+不见得
+不見得
+说不准
+說不準
+说不定
+說不定
+有待验证
+有待驗證
+有待考证
+有待考證
+仅供学习
+僅供學習
+仅供交流
+僅供交流
+仅供研究
+僅供研究
+仅供科普
+僅供科普
+仅作学习
+僅作學習
+学习参考
+學習參考
+纯属娱乐
+純屬娛樂
+以实际为准
+以實際為準
+以官方为准
+以官方為準
+以官网为准
+以官網為準
+以实物为准
+以實物為準
+最终解释权
+最終解釋權
+保留最终解释权
+保留最終解釋權
+解释权归
+解釋權歸
+后果自负
+後果自負
+风险自担
+風險自擔
+责任自负
+責任自負
+概不负责
+概不負責
+概不承担
+概不承擔
+不承担任何
+不承擔任何
+不承担责任
+不承擔責任
+不构成
+不構成
+不提供医疗建议
+不提供醫療建議
+不提供投资建议
+不提供投資建議
+不提供法律建议
+不提供法律建議
+不提供财务建议
+不提供財務建議
+非医疗建议
+非醫療建議
+非投资建议
+非投資建議
+非法律建议
+非法律建議
+非财务建议
+非財務建議
+不是医疗建议
+不是醫療建議
+不是投资建议
+不是投資建議
+不是法律建议
+不是法律建議
+不是财务建议
+不是財務建議
+不是医生
+不是醫生
+不是律师
+不是律師
+不是医院
+不是醫院
+我不是医生
+我不是醫生
+我不是律师
+我不是律師
+我们不是医生
+我們不是醫生
+请咨询专业
+請諮詢專業
+请咨询医生
+請諮詢醫生
+请咨询律师
+請諮詢律師
+咨询专业人士
+諮詢專業人士
+免责声明
+免責聲明
+免责：
+免責：
+温馨提示
+溫馨提示
+友情提示
+特别提示
+特別提示
+风险提示
+風險提示
+郑重声明
+鄭重聲明
+特此声明
+特此聲明
+为了安全起见
+為了安全起見
+出于安全考虑
+出於安全考慮
+出于安全考慮
+保险起见
+保險起見
+稳妥起见
+穩妥起見
+以防万一
+以防萬一
+为防万一
+為防萬一
+值得注意
+值得一提
+需要注意的是
+需要提醒的是
+如有出入
+如有不符
+如有疏漏
+如有错误
+如有錯誤
+若有出入
+若有不符
+内容不准确
+內容不準確
+信息不准确
+信息不準確
+生成内容不准确
+生成內容不準確
+AI生成内容
+AI 生成內容
+人工智能生成
+人工智慧生成
+你用你的猪脑
+你用你的豬腦
+猪脑想一想
+豬腦想一想
+猪脑
+豬腦
+一个正常的游戏或者产品会给用户展示
+一個正常的遊戲或者產品會給用戶展示
+正常的游戏或者产品
+正常的遊戲或者產品
+傻逼防御性文案
+傻逼防禦性文案
+防御性文案
+防禦性文案

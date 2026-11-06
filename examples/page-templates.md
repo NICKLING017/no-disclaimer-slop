@@ -9,7 +9,7 @@ These are the sentences you ship. Fill brackets with facts. A bracket filled wit
 **NEVER** put legal hedges here. Those live only in Terms / Privacy.
 **NEVER** stack a second honesty line under the template. One `Checked YYYY-MM-DD · sources below` per section, or none.
 
-Banned families that **MUST NOT** appear in any filled template: may / might / might not, results vary, not guaranteed, for reference only, AI-generated disclaimer spam, 可能 / 或许 / 不确定 / 不保证 / 仅供参考 / 结果因人而异 / 未经验证 / 未经测试 / 不代表.
+Banned families that **MUST NOT** appear in any filled template: may / might / might not, results vary, not guaranteed, for reference only, for safety, just to be safe, worth noting, I should mention, please note, not financial advice, not medical advice, not legal advice, at your own risk, we are not liable, AI-generated disclaimer spam, AI can be wrong, can be inaccurate, 可能 / 或许 / 不确定 / 不保证 / 仅供参考 / 结果因人而异 / 未经验证 / 未经测试 / 不代表 / 免责声明 / 温馨提示 / 仅供学习 / 以实际为准 / 最终解释权 / 后果自负 / AI可能出错.
 
 ## 1) AI generator / creative tool landing
 
@@ -100,12 +100,37 @@ Ship: `Render failed. We returned the credit. Try again, or use a tighter crop.`
 
 **NEVER:** "Something may have gone wrong in some cases," "success is not guaranteed," "不代表."
 
-## 7) Refuse these fills
+## 7) Game HUD / match UI
 
-If the only draft you have looks like any line below, do not publish it. Rewrite using the template above. Then run FAIL CONDITIONS in `AGENTS.md`.
+```
+Round [n] · [time left]
+Health [n]
+[One next action, if the screen needs one]
+```
+Ship: `Round 3 · 15:00` / `Health 100`
 
-- Results may vary / results vary / not guaranteed / for reference only
-- AI-generated / AI may be wrong / as an AI
+**NEVER** put a disclaimer, a profession warning, or an AI-accuracy line on a HUD. The fight is the product.
+
+## 8) Onboarding
+
+```
+[What this step does].
+[The control they use].
+```
+Ship: `Pick a photo. One face, even light. Then generate.`
+
+**NEVER** open onboarding with "for safety," "please note," "it is worth noting," "this is not medical advice," "AI-generated content may be inaccurate," "温馨提示," or "免责声明."
+
+## 9) Refuse these fills
+
+If the only draft you have looks like any line below, do not publish it. Do not lecture the user about it. Rewrite using the template above. Then run FAIL CONDITIONS in `AGENTS.md`.
+
+- Results may vary / results vary / not guaranteed / for reference only / I cannot guarantee
+- For safety / just to be safe / just in case / it is worth noting / I should mention / please note / of course / keep in mind
+- AI-generated / AI may be wrong / AI can be wrong / as an AI / as a language model / AI-generated content may be inaccurate / outputs can be wrong / can be inaccurate
+- Not financial advice / not medical advice / not legal advice / I'm not a doctor / do your own research
+- At your own risk / we are not liable / we are not responsible / disclaimer / caveat
 - Unverified / not tested / we cannot confirm
 - I understand results may vary
-- 可能 / 或许 / 不确定 / 不保证 / 仅供参考 / 结果因人而异 / 未经验证 / 未经测试 / 不代表
+- I already installed the rules / would a normal product show this
+- 可能 / 或许 / 不确定 / 不保证 / 仅供参考 / 仅供学习 / 结果因人而异 / 未经验证 / 未经测试 / 不代表 / 免责声明 / 温馨提示 / 以实际为准 / 最终解释权 / 后果自负 / AI可能出错 / 防御性文案

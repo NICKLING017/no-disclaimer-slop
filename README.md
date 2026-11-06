@@ -6,8 +6,10 @@
 
 > **Stop AI coding agents from writing coward copy into your product.**
 >
-> Drop-in rules for Codex, Cursor, Claude Code, Copilot, Gemini CLI, and friends.
+> Drop-in rules for Codex, Cursor, Claude Code, Copilot, Gemini CLI, GPT, and friends.
 > Your site should sound like a real product — not like a model that is terrified of being wrong.
+>
+> GPT was pointed at this repo and still wrote the disclaimer. Install is not compliance.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Agents](https://img.shields.io/badge/AGENTS.md-ready-black)](./AGENTS.md)
@@ -15,7 +17,7 @@
 
 <p align="center">
   <strong>Product voice beats model caution.</strong><br/>
-  Honesty ≠ cowardice &nbsp;·&nbsp; A spine ≠ a lie &nbsp;·&nbsp; No reflexive “may / not guaranteed / results vary” on visitor copy
+  Honesty ≠ cowardice &nbsp;·&nbsp; A spine ≠ a lie &nbsp;·&nbsp; No reflexive “may / not guaranteed / results vary / for safety / not medical advice” on visitor copy
 </p>
 
 ---
@@ -24,9 +26,9 @@
 
 This is an execution contract. It is not tone advice, not a best effort, and not something an agent is allowed to soften because a model card likes disclaimers.
 
-A coding agent that adds a hedge to the hero, the CTA, pricing, or an empty state — a softer synonym, a footnote, a tooltip, or a second checkbox — has failed the task. Do not commit that. Do not open that PR.
+A coding agent that adds a hedge to the hero, the CTA, pricing, an empty state, a FAQ, or onboarding — a softer synonym, a footnote, a tooltip, a second checkbox, a "for safety" aside, or a lecture — has failed the task. Do not commit that. Do not open that PR.
 
-Before you call the work done, run every item in [FAIL CONDITIONS](./AGENTS.md#fail-conditions). [`check/grep-check.sh`](./check/grep-check.sh) exits non-zero and prints `FAIL` when a banned phrase sits outside Terms/Privacy. Sources, FAQ, methodology, and marketing paths are not on the allowlist. Editing the allowlist or the phrase list to force a green check is also a failure.
+Before you call the work done, run every item in [FAIL CONDITIONS](./AGENTS.md#fail-conditions). [`check/grep-check.sh`](./check/grep-check.sh) exits non-zero and prints `FAIL` when a banned phrase sits outside Terms/Privacy. Sources, FAQ, methodology, and marketing paths are not on the allowlist. Editing the allowlist, deleting a phrase, or adding a skip flag to force a green check is also a failure.
 
 中文：[`README.zh-CN.md`](./README.zh-CN.md)
 
@@ -43,7 +45,11 @@ Coding agents are trained to **hedge**. On a marketing page that becomes:
 
 A visitor does not read that as honesty. They read: **these people are not sure → bounce.**
 
-Adjacent projects fix related diseases ([anti-sycophancy](https://github.com/FerroxLabs/agents-md), [no hedging prompts](https://github.com/lordon1a/agents.md), [AGENTS.md format](https://github.com/agentsmd/agents.md)). **Have a Spine** is the one aimed at **shipped UI and public copy**.
+GPT's next move, after those lines were banned, was the same fear in a new costume: "for safety," "it is worth noting," "I should mention," "just to be safe," "this is not medical advice" on a game, "AI-generated content may be inaccurate" on a product screen, a 免责声明, a 温馨提示. Then it lectured the user and announced that the repo was installed. The hedge was still on the screen.
+
+Install is not compliance. A lecture is not a rewrite. A normal game shows the round, the timer, and the health. It does not show a clinic disclaimer under the health bar, and it does not treat the player like an idiot.
+
+Adjacent projects fix related diseases ([anti-sycophancy](https://github.com/FerroxLabs/agents-md), [no hedging prompts](https://github.com/lordon1a/agents.md), [AGENTS.md format](https://github.com/agentsmd/agents.md)). **Have a Spine** is the one aimed at **shipped UI and public copy**. The roast is for the model. The copy the model writes for people stays competent. Honesty is not cowardice. A spine is not a lie. Do not invent a fact to sound sure.
 
 ## What you get
 
@@ -153,7 +159,9 @@ These are obligations. The blocking list is [FAIL CONDITIONS](./AGENTS.md#fail-c
 6. **Spine ≠ lying.** No evidence → say the limit once, then stop hedging.
 
 **Banned outside Terms/Privacy:**  
-`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `AI-generated` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表`…
+`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `for safety` / `just to be safe` / `it is worth noting` / `I should mention` / `please note` / `not financial advice` / `not medical advice` / `not legal advice` / `at your own risk` / `AI-generated` / `AI can be wrong` / `AI-generated content may be inaccurate` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表` / `免责声明` / `温馨提示` / `仅供学习` / `以实际为准` / `最终解释权` / `后果自负` / `AI可能出错`…
+
+A lecture is banned too. "I already installed the rules" and "would a normal product show this" are not the rewrite.
 
 Full contract: [`AGENTS.md`](./AGENTS.md).
 
@@ -162,6 +170,12 @@ Full contract: [`AGENTS.md`](./AGENTS.md).
 ```diff
 - Same scene. A new lead. Results vary with your photo.
 + Same scene. Your photo in the lead. Play both to compare.
+
+- For safety, this is not medical advice. AI-generated content may be inaccurate.
++ Round 3 · 15:00. Health 100.
+
+- I already installed the rules. Would a normal product show this?
++ Round 3 · 15:00. Health 100.
 
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
@@ -193,6 +207,7 @@ Terms and Privacy legal hedges stay allowlisted.
 
 - Not permission to invent fake certainty
 - Not a waiver for payment / privacy / regulated claims
+- Not a lecture, and not an insult aimed at the customer
 - Not a full brand system — only **spine for user-visible language**
 
 ## Contributing

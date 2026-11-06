@@ -6,8 +6,10 @@
 
 > **别让写代码的 AI 把怂文案写进你的产品。**
 >
-> 给 Codex、Cursor、Claude Code、Copilot、Gemini CLI 和同类代理的即插即用规则。
+> 给 Codex、Cursor、Claude Code、Copilot、Gemini CLI、GPT 和同类代理的即插即用规则。
 > 你的站点该像一个真产品 —— 不像一个怕说错话的模型。
+>
+> GPT 被指到这个仓库之后，还是把免责写进了产品。装上 ≠ 遵守。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Agents](https://img.shields.io/badge/AGENTS.md-ready-black)](./AGENTS.md)
@@ -15,7 +17,7 @@
 
 <p align="center">
   <strong>产品语气压过模型的怂。</strong><br/>
-  诚实 ≠ 怂 &nbsp;·&nbsp; 有骨气 ≠ 撒谎 &nbsp;·&nbsp; 用户可见文案禁止条件反射式「可能 / 不保证 / results vary」
+  诚实 ≠ 怂 &nbsp;·&nbsp; 有骨气 ≠ 撒谎 &nbsp;·&nbsp; 用户可见文案禁止条件反射式「可能 / 不保证 / results vary / 为了安全 / 非医疗建议」
 </p>
 
 ---
@@ -24,9 +26,9 @@
 
 这是执行合同，不是文风建议，不是「尽量」，也不是模型卡片喜欢免责声明就可以写软的东西。
 
-写代码的 agent 若在首屏、CTA、定价或空状态上加怂话——换个更软的同义词、脚注、tooltip、第二颗勾选框——这次任务失败。不许提交。不许开这个 PR。
+写代码的 agent 若在首屏、CTA、定价、空状态、FAQ 或新手引导上加怂话——换个更软的同义词、脚注、tooltip、第二颗勾选框、「为了安全」的旁白、或者教训用户——这次任务失败。不许提交。不许开这个 PR。
 
-声称做完之前，必须逐条跑完 [FAIL CONDITIONS](./AGENTS.md#fail-conditions)。[`check/grep-check.sh`](./check/grep-check.sh) 在条款 / 隐私以外扫到禁词时，必须以非零状态退出并打印 `FAIL`。来源页、FAQ、方法论、营销路径都不在白名单里。为了变绿去改白名单或删禁词，同样算失败。
+声称做完之前，必须逐条跑完 [FAIL CONDITIONS](./AGENTS.md#fail-conditions)。[`check/grep-check.sh`](./check/grep-check.sh) 在条款 / 隐私以外扫到禁词时，必须以非零状态退出并打印 `FAIL`。来源页、FAQ、方法论、营销路径都不在白名单里。为了变绿去改白名单、删禁词、或加跳过开关，同样算失败。
 
 English: [`README.md`](./README.md)
 
@@ -43,7 +45,11 @@ English: [`README.md`](./README.md)
 
 访客不会把这读成诚实。他们读到的是：**这帮人自己都没把握 → 走人。**
 
-相邻项目治的是相近的病（[反谄媚](https://github.com/FerroxLabs/agents-md)、[禁止 hedging 的提示词](https://github.com/lordon1a/agents.md)、[AGENTS.md 格式](https://github.com/agentsmd/agents.md)）。**Have a Spine** 专门打**已经上线的界面和公开文案**。
+上面那些句子被禁了之后，GPT 换了身衣服，还是同一股怂：「为了安全」「值得注意」「我应该提一下」「保险起见」，游戏界面上贴「这不是医疗建议」，产品屏幕上贴「AI 生成内容不准确」，再加一条免责声明、一条温馨提示。然后它教训用户，宣布仓库已经装上。怂话还在屏幕上。
+
+装上 ≠ 遵守。教训 ≠ 改写。正常游戏给玩家看回合、倒计时、血量。不在血条下面贴诊所声明，也不把玩家当傻子。
+
+相邻项目治的是相近的病（[反谄媚](https://github.com/FerroxLabs/agents-md)、[禁止 hedging 的提示词](https://github.com/lordon1a/agents.md)、[AGENTS.md 格式](https://github.com/agentsmd/agents.md)）。**Have a Spine** 专门打**已经上线的界面和公开文案**。骂的是模型。模型写给用户的句子照样要像样。诚实不是怂。有骨气不是撒谎。别编事实来装确定。
 
 ## 你拿到什么
 
@@ -153,7 +159,9 @@ bash check/grep-check.sh app/ components/ src/
 6. **有骨气 ≠ 撒谎。** 没有证据 → 把限度说一次，然后停止打太极。
 
 **条款 / 隐私以外的禁词：**  
-`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `AI-generated` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表`……
+`may` / `might` / `might not` / `results vary` / `not guaranteed` / `for reference only` / `for safety` / `just to be safe` / `it is worth noting` / `I should mention` / `please note` / `not financial advice` / `not medical advice` / `not legal advice` / `at your own risk` / `AI-generated` / `AI can be wrong` / `AI-generated content may be inaccurate` / `可能` / `或许` / `不确定` / `不保证` / `仅供参考` / `结果因人而异` / `未经验证` / `未经测试` / `不代表` / `免责声明` / `温馨提示` / `仅供学习` / `以实际为准` / `最终解释权` / `后果自负` / `AI可能出错`……
+
+教训也禁。「规则我装过了」「正常产品会展示这个吗」不是改写。
 
 完整合同：[`AGENTS.md`](./AGENTS.md)。
 
@@ -162,6 +170,12 @@ bash check/grep-check.sh app/ components/ src/
 ```diff
 - Same scene. A new lead. Results vary with your photo.
 + Same scene. Your photo in the lead. Play both to compare.
+
+- For safety, this is not medical advice. AI-generated content may be inaccurate.
++ Round 3 · 15:00. Health 100.
+
+- I already installed the rules. Would a normal product show this?
++ Round 3 · 15:00. Health 100.
 
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
@@ -193,6 +207,7 @@ bash check/grep-check.sh app/ components/ src/
 
 - 不是允许编造假确定性
 - 不是支付 / 隐私 / 监管声明的豁免
+- 不是教训用户，也不是把骂人写进产品
 - 不是一整套品牌系统 —— 只给**用户看得见的语言**一条脊梁
 
 ## 贡献
