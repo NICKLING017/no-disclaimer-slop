@@ -548,3 +548,197 @@ AI 生成內容
 傻逼防禦性文案
 防御性文案
 防禦性文案
+
+# --- Game HUD: pipeline narration ---
+# Do not ban 对手 or 匹配 by themselves. 寻找对手 and 匹配成功 are honest.
+# Do not ban a round timer. 30秒后开战 stays. 30秒后电脑补位 dies.
+# Bare 为你 is not listed: it is inside 因为你. Ban the compounds.
+
+为你寻找
+為你尋找
+正在为你
+正在為你
+系统为你
+系統為你
+将为你
+將為你
+为你匹配
+為你匹配
+
+优先匹配真人
+優先匹配真人
+优先真人
+優先真人
+真人优先
+真人優先
+真人玩家优先
+真人玩家優先
+先匹配真人
+匹配真人
+匹配真人玩家
+若无真人
+若無真人
+如果没有真人
+如果沒有真人
+没有真人时
+沒有真人時
+无真人则
+無真人則
+未匹配到真人
+未找到真人
+匹配不到真人
+找不到真人
+先找真人
+
+电脑补位
+電腦補位
+人机补位
+人機補位
+机器人补位
+機器人補位
+机器补位
+機器補位
+AI补位
+自动补位
+自動補位
+智能补位
+智能補位
+bot补位
+Bot补位
+机器人填充
+機器人填充
+电脑填充
+電腦填充
+人机填充
+人機填充
+用电脑补
+用電腦補
+用电脑填
+用電腦填
+电脑顶替
+電腦頂替
+机器人顶替
+機器人頂替
+机器人接管
+機器人接管
+电脑接管
+電腦接管
+改为电脑
+改為電腦
+改为人机
+改為人機
+转为电脑
+轉為電腦
+转为机器人
+轉為機器人
+自动匹配机器人
+自動匹配機器人
+匹配机器人
+匹配機器人
+填充机器人
+填充機器人
+
+匹配超时
+匹配超時
+等待超时
+等待超時
+排队超时
+排隊超時
+超时后将
+超時後將
+超时将自动
+超時將自動
+超时自动
+超時自動
+超时补位
+超時補位
+秒后电脑
+秒後電腦
+秒后补位
+秒後補位
+秒后机器人
+秒後機器人
+秒后自动
+秒後自動
+秒后人机
+秒後人機
+30秒后电脑
+30秒後電腦
+30 秒后电脑
+30 秒後電腦
+
+系统将自动
+系統將自動
+系统会自动
+系統會自動
+系统将为你
+系統將為你
+系统会为你
+系統會為你
+系统自动为
+系統自動為
+系统提示
+系統提示
+系统说明
+系統說明
+后台
+後台
+后台将
+後台將
+后台会
+後台會
+后台自动
+後台自動
+在后台
+在後台
+服务器将
+伺服器將
+服务器会
+伺服器會
+服务端将
+服務端將
+服务端会
+服務端會
+若匹配失败
+若匹配失敗
+匹配失败后
+匹配失敗後
+匹配失败将
+匹配失敗將
+连接失败将
+連接失敗將
+加载失败将
+載入失敗將
+网络异常将
+網絡異常將
+系统繁忙将
+系統繁忙將
+出错后将
+出錯後將
+发生错误将
+發生錯誤將
+异常时将
+異常時將
+
+real players first
+prioritize real players
+if no real players
+if no players are found
+if no humans are found
+searching for real players
+looking for real players
+looking for a real player
+fallback to a bot
+fallback to bot
+fallback to AI
+fallback to a computer
+filled with a bot
+filled with AI
+fill with a bot
+fill with AI
+a bot will join
+bots will fill
+the server will automatically
+the system will automatically
+server will auto-fill
+server will automatically

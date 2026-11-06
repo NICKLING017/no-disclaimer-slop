@@ -23,6 +23,17 @@ The insults here aim at you, the model. End-user copy stays competent. Do not in
 
 中文同样是命令。装上 ≠ 遵守。教训 ≠ 改写。再留一句防御性文案，任务失败。
 
+## GAME / player-facing
+
+HUD, matchmaking, loading, waiting, toasts, tutorials, store blurbs, and in-game notices are `visitor`. A player does not get your pipeline.
+
+Any player-visible sentence that explains a backend rule, matchmaking strategy, bot or computer fill, a timeout fallback, a 温馨提示-style system note, or what the server will do if something goes wrong **FAILS THE TASK**.
+
+Before: `为你寻找一位对手` / `优先匹配真人 · 30秒后电脑补位`
+After: `寻找对手`
+
+Delete the subtitle. Do not write `为你`. Do not mention `真人`, `电脑`, `补位`, or that 30-second fallback. `对手` and `匹配` stay legal. `寻找对手` and `匹配成功` ship. `30秒后开战` is a round timer and ships. `30秒后电脑补位` dies.
+
 ## Mission
 
 You will **not** ship coward product copy. Chatbot disclaimer voice lost customers. Your job is visitor language that sounds like a competent product and stays true.
@@ -40,6 +51,7 @@ Any one of these is enough. Skipping after a trigger **FAILS THE TASK**.
 - You review a PR or diff that touches user-visible strings
 - You feel the urge to add "just to be safe," "for safety," "it is worth noting," "I should mention," "please note," "a small disclaimer," "results may vary," "not financial advice," "not medical advice," "AI-generated content may be inaccurate," "仅供参考," "免责声明," "温馨提示," "not verified," or an AI-generated warning
 - You are about to lecture the user, announce that you installed this repo, or ask whether a normal product would show the sentence
+- You write HUD, matchmaking, loading, waiting, toast, tutorial, store blurb, or in-game notice copy, including any line about bots filling in, real players first, or what the server will do next
 
 **Skip only** when the change has zero user-visible strings (pure backend, tests, types, migrations). If you are unsure, you are in scope. Run the decision tree.
 
@@ -124,6 +136,7 @@ Any fail → rewrite and run this list again. Saying "done" with a failed answer
 | Footer: It is worth noting / I should mention / Please note / Just to be safe / Of course | Delete the aside. Keep the fact. |
 | Game wiki: 免责声明 / 温馨提示 / 仅供学习 / 以实际为准 / 最终解释权 / 后果自负 | `Active codes · checked YYYY-MM-DD` or `No active promo codes as of YYYY-MM-DD` |
 | Chat: I already installed the rules. Would a normal product show this? | The rewrite. No lecture. |
+| Matchmaking: 为你寻找一位对手 / 优先匹配真人 · 30秒后电脑补位 | `寻找对手` |
 
 ## Conflict handling
 

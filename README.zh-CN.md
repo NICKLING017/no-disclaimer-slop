@@ -152,7 +152,7 @@ bash check/grep-check.sh app/ components/ src/
 下面每条都是义务。卡住完成的清单在 [FAIL CONDITIONS](./AGENTS.md#fail-conditions)。漏一条，任务失败。
 
 1. **改之前先给每句文案分类**：`visitor` | `support` | `legal`。
-2. **访客面**（首屏、CTA、卡片、定价、空状态）：把事实说死。禁词在 FAQ 和来源页同样不算豁免。
+2. **访客面**（首屏、CTA、卡片、定价、空状态、游戏 HUD）：把事实说死。禁词在 FAQ 和来源页同样不算豁免。匹配、加载、等待、toast、教程、商店简介、局内提示都是访客面。
 3. **每个版块最多一行诚实标记**（`Checked DATE · sources`）—— 不要堆一串「我们本人并没有……」。
 4. **真不知道** → 一个具体缺口 + 下一步。不要每句话都起雾。
 5. **法律免责只留在条款 / 隐私。** FAQ 不行。首屏不行。
@@ -177,6 +177,10 @@ bash check/grep-check.sh app/ components/ src/
 - I already installed the rules. Would a normal product show this?
 + Round 3 · 15:00. Health 100.
 
+- 为你寻找一位对手
+- 优先匹配真人 · 30秒后电脑补位
++ 寻找对手
+
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
   Sources & method in the footer — once.
@@ -199,7 +203,7 @@ bash check/grep-check.sh app/ components/ src/
 
 ## 给谁用
 
-- 用 coding agent 上线 AI / SaaS / 游戏 wiki 的独立开发者
+- 用 coding agent 上线 AI / SaaS / 游戏的独立开发者。游戏是一等目标：HUD、匹配、加载、等待、toast、教程、商店简介、局内提示、wiki。
 - 审 PR 审到「免责声明沙拉」已经烦了的团队
 - GEO「诚实」语气不小心写成**胆怯营销**的人
 

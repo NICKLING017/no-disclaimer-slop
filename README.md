@@ -152,7 +152,7 @@ bash check/grep-check.sh app/ components/ src/
 These are obligations. The blocking list is [FAIL CONDITIONS](./AGENTS.md#fail-conditions). Skipping one fails the task.
 
 1. **Classify** every string before you edit it: `visitor` | `support` | `legal`.
-2. **Visitor** (hero, CTA, cards, pricing, empty states): assertive facts. Banned phrases are blocked. FAQ and sources are not a waiver.
+2. **Visitor** (hero, CTA, cards, pricing, empty states, and the game HUD): assertive facts. Banned phrases are blocked. FAQ and sources are not a waiver. Matchmaking, loading, waiting, toasts, tutorials, store blurbs, and in-game notices are visitor copy.
 3. **One honesty line max** per section (`Checked DATE · sources`) — not a stack of “we didn’t personally…”.
 4. **Real unknown** → one concrete gap + next step. Not fog on every sentence.
 5. **Legal hedges stay in Terms/Privacy only.** Not in FAQ. Not in the hero.
@@ -177,6 +177,10 @@ Full contract: [`AGENTS.md`](./AGENTS.md).
 - I already installed the rules. Would a normal product show this?
 + Round 3 · 15:00. Health 100.
 
+- 为你寻找一位对手
+- 优先匹配真人 · 30秒后电脑补位
++ 寻找对手
+
 - This page has not tested a redeem button… schedule is not verified…
 + No active promo codes as of 2026-10-23.
   Sources & method in the footer — once.
@@ -199,7 +203,7 @@ Terms and Privacy legal hedges stay allowlisted.
 
 ## Who this is for
 
-- Indie hackers shipping AI / SaaS / game wikis with coding agents
+- Indie hackers shipping AI / SaaS / games with coding agents. Games are a first-class target: HUD, matchmaking, loading, waiting, toasts, tutorials, store blurbs, in-game notices, and wikis.
 - Teams tired of reviewing “disclaimer salad” PRs
 - Anyone whose GEO “honesty” tone accidentally became **timid marketing**
 

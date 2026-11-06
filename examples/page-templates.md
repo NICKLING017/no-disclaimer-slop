@@ -111,6 +111,16 @@ Ship: `Round 3 · 15:00` / `Health 100`
 
 **NEVER** put a disclaimer, a profession warning, or an AI-accuracy line on a HUD. The fight is the product.
 
+**Matchmaking / waiting**
+```
+寻找对手
+```
+Ship that title. No subtitle.
+
+**NEVER** write `为你`. **NEVER** mention `真人`, `电脑`, `补位`, or a fallback timer. **NEVER** explain matchmaking strategy, bot fill, a timeout, a 温馨提示-style system note, or what the server will do if the search goes long.
+
+`对手` and `匹配` are allowed. `匹配成功` ships. `30秒后开战` ships when it is the round timer. `30秒后电脑补位` does not.
+
 ## 8) Onboarding
 
 ```

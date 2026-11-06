@@ -183,3 +183,20 @@ Health 100
 ```
 
 The lecture is not the deliverable. Do not scold the user. Do not announce the install. Ship the sentence.
+
+## Matchmaking — pipeline narration
+
+**Before**
+```
+为你寻找一位对手
+优先匹配真人 · 30秒后电脑补位
+```
+
+**After**
+```
+寻找对手
+```
+
+Delete the subtitle. The player does not get the fallback plan. No `为你`. No `真人`. No `电脑`. No `补位`. No 30-second fill timer.
+
+`匹配成功` is a fact. `30秒后开战` is a round timer. Those ship. `若无真人`, `人机补位`, `匹配超时`, `系统将自动`, and `后台` do not.
