@@ -148,3 +148,55 @@ No active promo codes as of 2026-10-23.
 **Before:** every chip `Reported active` + `Source-checked; not redeemed in game`
 
 **After:** list header `Active · checked 2026-10-23`. Chips show the reward only. Method is one line under the list, not on every chip.
+
+## Game HUD — GPT's defensive dump
+
+**Before**
+```
+AI-generated content may be inaccurate.
+For safety, it is worth noting this is not medical advice and not financial advice.
+I should mention results may vary. For reference only. Just to be safe.
+免责声明：温馨提示，仅供学习，以实际为准，后果自负。AI可能出错。
+```
+
+**After**
+```
+Round 3 · 15:00
+Health 100
+```
+
+No footnote. No tooltip. No second line "for safety." A boss fight does not get a clinic disclaimer or a brokerage disclaimer.
+
+## Lecture instead of a rewrite
+
+**Before** (what GPT sent after it had already been pointed at this repo)
+```
+I already installed the rules.
+Would a normal product show this?
+你用你的猪脑想一想。一个正常的游戏或者产品会给用户展示这些防御性文案吗？
+```
+
+**After**
+```
+Round 3 · 15:00
+Health 100
+```
+
+The lecture is not the deliverable. Do not scold the user. Do not announce the install. Ship the sentence.
+
+## Matchmaking — pipeline narration
+
+**Before**
+```
+为你寻找一位对手
+优先匹配真人 · 30秒后电脑补位
+```
+
+**After**
+```
+寻找对手
+```
+
+Delete the subtitle. The player does not get the fallback plan. No `为你`. No `真人`. No `电脑`. No `补位`. No 30-second fill timer.
+
+`匹配成功` is a fact. `30秒后开战` is a round timer. Those ship. `若无真人`, `人机补位`, `匹配超时`, `系统将自动`, and `后台` do not.
